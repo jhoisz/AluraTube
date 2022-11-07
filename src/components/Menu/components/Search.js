@@ -51,7 +51,7 @@ export default function Search({ valorDoFiltro, setValorDoFiltro }) {
             }}
                 value={valorDaBusca}
             />
-            <button></button>
+            <button>🔎</button>
         </StyledSearch>
     )
 }

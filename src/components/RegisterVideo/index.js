@@ -39,7 +39,7 @@ function getThumbnail(url) {
 
 export default function RegisterVideo() {
     const [formVisivel, setFormVisivel] = React.useState(false);
-    const formCadastro = useForm({ initialValues: { titulo: "", url: "" } });
+    const formCadastro = useForm({ initialValues: { titulo: "", url: "", playlist: "" } });
 
     // console.log()
 
@@ -53,14 +53,13 @@ export default function RegisterVideo() {
                 formVisivel ?
                     <form onSubmit={(evento) => {
                         evento.preventDefault()
-                        console.log(formCadastro.values.title)
                         const thumb = getThumbnail(formCadastro.values.url)
 
                         supabase.from("video").insert({
                             title: formCadastro.values.titulo,
                             url: formCadastro.values.url,
                             thumb: thumb,
-                            playlist: "jogos"
+                            playlist: formCadastro.values.playlist
                         }).then(
                             (e) => {
                                 console.log(e)
@@ -97,7 +96,17 @@ export default function RegisterVideo() {
                                     formCadastro.handleChange
                                 }
                             ></input>
+                            <input
+                                placeholder="Playlist"
+                                name="playlist"
+                                value={formCadastro.values.playlist}
+                                onChange={
+                                    formCadastro.handleChange
+                                }
+                            ></input>
                             <button type="submit">Cadastrar</button>
+
+
                         </div>
                     </form>
                     : false

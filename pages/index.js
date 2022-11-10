@@ -3,9 +3,32 @@ import styled from 'styled-components'
 import Menu from '../src/components/Menu'
 import { StyledTimeline } from '../src/components/Timeline'
 import React from 'react'
+import videoService from '../src/services/videoService'
 
 function HomePage() {
+    const service = videoService();
     const [valorDoFiltro, setValorDoFiltro] = React.useState("")
+
+    const [playlists, setPlaylists] = React.useState({})
+
+    React.useEffect(() => {
+        console.log("useEffect")
+
+        service
+            .getAllVideos()
+            .then((dados) => {
+                const novasPLaylists = { ...playlists }
+                dados.data.forEach((video) => {
+                    if (!novasPLaylists[video.playlist]) {
+                        novasPLaylists[video.playlist] = []
+                    }
+                    novasPLaylists[video.playlist].push(video)
+                })
+                setPlaylists(novasPLaylists)
+            })
+    }, [])
+
+    console.log(playlists)
 
     return (
         <>
@@ -18,12 +41,11 @@ function HomePage() {
                 <Header />
                 <TimeLine
                     searchValue={valorDoFiltro}
-                    playlists={config.playlists} >
+                    playlists={playlists} >
 
                 </TimeLine>
             </div>
         </>
-
     )
 }
 

@@ -44,4 +44,26 @@ export const StyledTimeline = styled.div`
       }
     }
   }
+
+    /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #b3b2b3;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.backgroundBase};
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #b3b2b3;
+    border-radius: 10px;
+    border: 3px solid;
+  }
 `;

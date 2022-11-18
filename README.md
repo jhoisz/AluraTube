@@ -3,7 +3,7 @@
 ## ℹ️ Sobre a imersão
 Foram 5 dias de imersão na [Alura](https://www.alura.com.br/), onde fui monitora e auxiliei os alunos nas resoluções de suas dúvidas, questionamentos e problemas enfrentados. O foco da imersão eram pessoas com conhecimento intermediário em programação e a principal linguagem utilizada foi JavaScript, com o framework React e a biblioteca Next.js.
 
-## :ledger: Projetos desenvolvidos
+## :ledger: Projeto desenvolvido
 Todos os dias o projeto evoluia de alguma maneira, adicinando uma nova feature ao site. Abaixo uma animação com o projeto desenvolvido:
 
 <p align="center">
